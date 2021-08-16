@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>toDo</RootNamespace>
+    <EnableDefaultItems>False</EnableDefaultItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Telerik.UI.for.Wpf.NetCore.Xaml.Trial" Version="2021.2.615" />
+  </ItemGroup>
+  
+  <ItemGroup>
+  <ApplicationDefinition Include="App.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <SubType>Designer</SubType>
+  </ApplicationDefinition>
+  <Page Include="Controls\WTask.xaml">
+    <Generator>MSBuild:Compile</Generator>
+  </Page>
+  <Page Include="MainWindow.xaml">
+    <Generator>MSBuild:Compile</Generator>
+    <SubType>Designer</SubType>
+  </Page>
+  <Page Include="Pages\WTasksPage.xaml">
+    <Generator>MSBuild:Compile</Generator>
+  </Page>
+  <Compile Include="App.xaml.cs">
+    <DependentUpon>App.xaml</DependentUpon>
+    <SubType>Code</SubType>
+  </Compile>
+  <Compile Include="Base\BaseViewModel.cs" />
+  <Compile Include="Controls\WTask.xaml.cs" />
+  <Compile Include="Controls\WTaskViewModel.cs" />
+  <Compile Include="Helpes\RelayCommand.cs" />
+  <Compile Include="MainWindow.xaml.cs">
+    <DependentUpon>MainWindow.xaml</DependentUpon>
+    <SubType>Code</SubType>
+  </Compile>
+  <Compile Include="Pages\WTasksPage.xaml.cs" />
+  <Compile Include="Pages\WTasksPageViewModel.cs" />
+</ItemGroup>
+
+</Project>

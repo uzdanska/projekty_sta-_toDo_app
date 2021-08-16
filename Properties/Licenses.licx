@@ -1,0 +1,5 @@
+Telerik.Windows.Controls.RadCalendar, Telerik.Windows.Controls.Input, Version=2021.2.615.310, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.RadButton, Telerik.Windows.Controls, Version=2021.2.615.310, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.RadSplitButton, Telerik.Windows.Controls, Version=2021.2.615.310, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.VirtualizingWrapPanel, Telerik.Windows.Controls, Version=2021.2.615.310, Culture=neutral, PublicKeyToken=5803cfa389c90ce7
+Telerik.Windows.Controls.Data.PropertyGrid.CollectionEditorPicker, Telerik.Windows.Controls.Data, Version=2021.2.615.310, Culture=neutral, PublicKeyToken=5803cfa389c90ce7

@@ -1,0 +1,89 @@
+﻿<Page x:Class="toDo.WTasksPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:toDo" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+      mc:Ignorable="d" 
+      MaxHeight="500"
+      MaxWidth="871" 
+      MinHeight="500"
+      MinWidth="871"
+      Title="WTasksPage" Height="500" Width="871">
+    <Page.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF859ED1" Offset="0.742"/>
+            <GradientStop Color="White" Offset="0"/>
+        </LinearGradientBrush>
+    </Page.Background>
+
+    <Grid  >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="221*"/>
+            <ColumnDefinition Width="650*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Margin="100,68,0,0" Grid.RowSpan="2" Width="395" Grid.Column="1" Height="384" >
+            <TextBlock Text= "Twoje obecne zadania do wykonania :)" FontSize="16" FontFamily="Britannic Bold" Foreground="Black" Height="33" Width="277"/>
+            <ScrollViewer Height="200">
+                <ItemsControl ItemsSource="{Binding WTaskList}" Margin="10">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <local:WTask/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+            <TextBlock Text="Tytuł zadania:" Height="20" FontSize="15" FontWeight="Bold" />
+            <TextBox Text="{Binding AddNewTitle, Mode=TwoWay}" FontSize="15" FontFamily="Georgia"  FontWeight="Black"/>
+            <TextBlock Text="Opis zadania:" Height="20" FontWeight="Bold" FontSize="15"/>
+            <TextBox Text="{Binding AddNewDescription, Mode=TwoWay}"  FontSize="15" FontFamily="Georgia"  FontWeight="Black"/>
+            <telerik:RadDropDownButton HorizontalAlignment="Center"  
+                           VerticalAlignment="Top" 
+                           Content="Wybor"
+                           Background="#9E7777"
+                           FontSize="15"
+                           FontWeight="ExtraBlack"
+                           Margin="10, 10, 10, 10">
+                <telerik:RadDropDownButton.DropDownContent>
+                    <telerik:RadContextMenu>
+                        <telerik:RadMenuItem Header="Dodaj" Command="{Binding AddNewTaskCommand}" FontSize="14" FontFamily="Georgia" Background="#DEBA9D" />
+                        <telerik:RadMenuItem Header="Edytuj" Command="{Binding EditTaskCommand}" FontSize="14" FontFamily="Georgia" Background="#9E7777"/>
+                        <telerik:RadMenuItem Header="Usun" Command="{Binding DeleteTaskCommand}" FontSize="14" FontFamily="Georgia" Background="#6F4C5B"/>
+                    </telerik:RadContextMenu>
+                </telerik:RadDropDownButton.DropDownContent>
+            </telerik:RadDropDownButton>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Grid.RowSpan="2" Margin="0,0,1,0">
+            <StackPanel.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF3C4457" Offset="1"/>
+                    <GradientStop Color="#FF9EA9C1" Offset="0.303"/>
+                    <GradientStop Color="#FF536597" Offset="0.76"/>
+                    <GradientStop Color="#FF7D97DA" Offset="0.558"/>
+                </LinearGradientBrush>
+            </StackPanel.Background>
+
+
+            <StackPanel Height="144" Width="220" VerticalAlignment="Top" Margin="0,0,10,0" HorizontalAlignment="Right">
+                <Label x:Name="label" Content="TO DO APP" Width="120" FontFamily="Britannic Bold" Foreground="#FF091438" FontSize="20" Height="30" HorizontalContentAlignment="Center"  RenderTransformOrigin="0.5,0.5" FontWeight="{Binding ActualWidth, ElementName=label, Mode=OneWay}" Background="{x:Null}" Margin="0,0,15,10" HorizontalAlignment="Right"/>
+                <Image Width ="124" Height="97" Source="https://icon-library.com/images/e53bf02c0e739b9f60a6fef132599ad3--app-icon-design-app-logo-design.jpg" Stretch="UniformToFill" RenderTransformOrigin="0.5,0.5" StretchDirection="Both" Margin="0,0,25,0" HorizontalAlignment="Right" />
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Text="Data zrobienia zadania:" FontSize="16" FontFamily="Lucida Sans Unicode" Margin="-2,180,0,169" TextAlignment="Center" TextWrapping="NoWrap" FontWeight="Bold" HorizontalAlignment="Left" Width="232"/>
+        <telerik:RadDateTimePicker InputMode="DatePicker" Margin="72,216,39,120" telerik:StyleManager.Theme="Office2019" Background="#FF201846" FontSize="14" FontFamily="Arial Black" Foreground="Snow" />
+
+        <TextBlock FontSize="15" FontFamily="Lucida Sans Unicode" Margin="10,319,7,62" FontWeight="Bold" HorizontalAlignment="Center" ><Run Language="pl-pl" Text="Godzina zrobienia zadania:"/></TextBlock>
+        <telerik:RadDateTimePicker InputMode="TimePicker"  telerik:StyleManager.Theme="Office2019" Margin="72,352,39,81" Background="#FF201846" FontSize="14" FontFamily="Arial Black" Foreground="Snow" Grid.RowSpan="2" />
+
+
+
+        <StackPanel Grid.ColumnSpan="4" Margin="0,0,0,480" Grid.RowSpan="2"/>
+
+    </Grid>
+</Page>
